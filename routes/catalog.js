@@ -8,7 +8,7 @@ var category_controller = require('../controllers/categoryController');
 /// PRODUCT ROUTES ///
 
 // GET catalog home page.
-router.get('/', product_controller.index);
+router.get('/', category_controller.index);
 
 // GET request for creating a product. NOTE This must come before routes that display product (uses id).
 router.get('/product/create', product_controller.product_create_get);
@@ -59,7 +59,7 @@ router.post('/category/:id/update', category_controller.category_update_post);
 router.get('/category/:id', category_controller.category_detail);
 
 // GET request for list of all Category.
-router.get('/categorys', category_controller.category_list);
+router.get('/categories', category_controller.category_list);
 
 
 
