@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1 #{product.name}
+  p #{product.type}
+
+  p #[strong Summary:] #{product.description}
+  p #[strong Genre:]
+  -console.log(product)
+    each val, index in product.category
+      a(href=val.url) #{val.name}
+      if index < product.category.length - 1
+        |,
+
+    else
+      p There are no product of this type
+
+  hr
+  p
+    a(href=product.url+'/delete') Delete Book
+  p
+    a(href=product.url+'/update') Update Book
