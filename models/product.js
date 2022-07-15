@@ -7,6 +7,7 @@ var ProductSchema = new Schema({
     description: {type: String, required: true},
     price: {type: Number, required: true},
     stock: {type: Number, required: true},
+    type: {type: String, required: true},
     category: [{ type: Schema.ObjectId, ref: 'Category' }]
 });
 

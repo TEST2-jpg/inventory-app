@@ -4,8 +4,14 @@ var Product = require('../models/product')
 const { body, validationResult } = require("express-validator");
 
 
-exports.index = function (req, res) {
-    res.render('index', { title: 'Local Library Home'});
+exports.index = async function (req, res) {
+  const category_home = ['62cbec3cfb89ebba3a539320', '62cbec3dfb89ebba3a539323', '62d0def41732eab67814408e']
+  const productNum = await Product.countDocuments()
+  const categoryNum = await Category.countDocuments()
+    Category.find().where('_id').in(category_home).exec(function (err, list_categories) {
+      if (err) { return next(err); }
+      res.render('index', { title: 'Front page', list_categories:  list_categories, categoryNum, productNum});
+    });
 };
 
 // Display list of all category.
