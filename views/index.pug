@@ -1,16 +1,36 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #[em LocalLibrary], a very basic Express website developed as a tutorial example on the Mozilla Developer Network.
-
-  h1 Dynamic content
+  h1(style="padding: 20px 0px")= title
+  p.index-category-name Categories
+  -console.log(categoryNum)
+  .container
+  .row
+    .col
+      a(href=list_categories[0].url)
+        .index-category
+          img(class="index-img" src="https://images.pexels.com/photos/1432797/pexels-photo-1432797.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", alt="", srcset="" class="img-fluid rounded")
+          .index-img-name Components 
+    .col
+      a(href=list_categories[1].url)
+        .index-category
+          img(class="index-img" src="https://images.pexels.com/photos/8250832/pexels-photo-8250832.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", alt="", srcset="" class="img-fluid rounded")
+          .index-img-name Accessories 
+    .col
+      a(href=list_categories[2].url)
+        .index-category
+          img(class="index-img" src="https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", alt="", srcset="" class="img-fluid rounded")
+          .index-img-name Electronics 
+  p(style="margin: 10px 0px") Welcome to a basic Express Inventory website.
 
   if error
     p Error getting dynamic content.
   else
-    p The library has the following record counts:
-    ul
-      //- -console.log(data)
-      //- li #[strong Books:] !{data.product_count}
-      //- li #[strong Genres:] !{data.category_count}
+      p.index-category-name Total Count
+      .count-container
+        .count 
+          .count-num !{productNum} 
+          span.count-title Products
+        .count
+          .count-num !{categoryNum} 
+          span.count-title Categories
