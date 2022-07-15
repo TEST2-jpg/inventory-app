@@ -2,13 +2,13 @@ extends layout
 
 block content
 
-  h1 Genre: #{category.name}
+  h1 Category: #{category.name}
   p 
       a(href=) Create
       |  a new product in #{category.name.toLowerCase()} category
   div(style='margin-left:20px;margin-top:20px')
   
-    h4 Books
+    h4 Products
 
     dl
       each product in category_products
@@ -18,9 +18,9 @@ block content
         dd #{product.price}
 
       else
-        p This genre has no products
+        p This Category has no products
   hr
   p
-    a(href=category.url+'/delete') Delete genre
+    a(href=category.url+'/delete') Delete Category
   p
-    a(href=category.url+'/update') Update genre
+    a(href=category.url+'/update') Update Category name
